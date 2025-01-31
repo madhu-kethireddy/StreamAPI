@@ -27,6 +27,18 @@ public class StreamPipelines {
                     .skip(2)
                     .forEach(n -> System.out.println(n));
 
+        Stream.of(1,2,3,5,6).flatMap(x -> {
+            switch (x%2) {
+                case 0:
+                    return Stream.of(x, x*x);
+                case 1:
+                    return Stream.of(0);
+                default:
+                    return Stream.of(100);                 
+            }
+        }).forEach(System.out::println);;
+
+
     }
 
 
